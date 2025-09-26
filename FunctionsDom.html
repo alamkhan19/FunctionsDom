@@ -1,0 +1,74 @@
+function findEvenOdd(...numbers) {
+    let even = [];
+    let odd = [];
+
+    numbers.forEach(num => {
+        if (num % 2 === 0) {
+            even.push(num);
+        } else {
+            odd.push(num);
+        }
+    });
+
+    return { even, odd };
+}
+
+// Nümunə çağırış:
+const numbers = findEvenOdd(14, 20, 35, 40, 57, 60, 100);
+console.log("Even:", numbers.even); // [14, 20, 40, 60, 100]
+console.log("Odd:", numbers.odd);   // [35, 57]
+function sumDivisibleBy4And5(array) {
+    return array.filter(num => num % 4 === 0 && num % 5 === 0)
+                .reduce((acc, num) => acc + num, 0);
+}
+
+// Nümunə çağırış:
+const array = [14, 20, 35, 40, 57, 60, 100];
+const sum = sumDivisibleBy4And5(array);
+console.log("Sum of elements divisible by 4 and 5:", sum); // 20 + 40 + 60 + 100 = 220
+function countChar(sentence, char) {
+    let count = 0;
+    for (let i = 0; i < sentence.length; i++) {
+        if (sentence[i] === char) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// Nümunə çağırış:
+const sentence = "Hello world! How are you?";
+const charToCount = "o";
+const count = countChar(sentence, charToCount);
+console.log(`Character '${charToCount}' appears ${count} times.`); // 4
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Counter</title>
+</head>
+<body>
+    <h2>Simvol sayını tapmaq</h2>
+    <input type="text" id="sentence" placeholder="Cümləni daxil edin">
+    <input type="text" id="char" placeholder="Simvolu daxil edin" maxlength="1">
+    <button id="countBtn">Count</button>
+    <p id="result"></p>
+
+    <script>
+        function countChar(sentence, char) {
+            let count = 0;
+            for (let i = 0; i < sentence.length; i++) {
+                if (sentence[i] === char) count++;
+            }
+            return count;
+        }
+
+        document.getElementById("countBtn").addEventListener("click", function() {
+            const sentence = document.getElementById("sentence").value;
+            const char = document.getElementById("char").value;
+            const result = countChar(sentence, char);
+            document.getElementById("result").innerText = 
+                `Simvol '${char}' ${result} dəfə tapıldı.`;
+        });
+    </script>
+</body>
+</html>
